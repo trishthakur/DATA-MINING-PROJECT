@@ -183,8 +183,10 @@
                     <div class="col-md-4 col-sm-4">
                          <div class="team-thumb">
                               <div class="team-info team-thumb-up">
-                                   <h2>Dataset</h2>
-                                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing eiusmod tempor incididunt ut labore et dolore magna.</p>
+                                   <h2>Zillow Data:</h2>
+                                   <p>To perform a real estate analysis, we needed to gather information on the current state of real estate in Boulder, CO. Zillow is a website that posts current real estate for sale. Because of the format, web scraping had to be used to gather relevant information in a usable format. 
+                                        An API combined with a Python HTML parser was used to gather residential (homes and townhouses) data from Zillow for Boulder, CO, on Sunday, March 17. Information was gathered on price, address, number of bedrooms, number of bathrooms, square footage, latitude and longitude, and zestimate (Zillow's estimate of the home's value). There was no missing data, but not every home collected had a Zestimate. Missing Zestimates were marked with NaN. Price outliers were determined by being outside the range Median  1.5* IQR and were removed for better results in the modeling to come later. No other actions were needed on the beds, baths, and square footage features.
+                                        </p>
                               </div>
                          </div>
                     </div>
@@ -192,8 +194,11 @@
                     <div class="col-md-4 col-sm-4">
                          <div class="team-thumb">
                               <div class="team-info team-thumb-down">
-                                   <h2>Data Cleaning</h2>
-                                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing eiusmod tempor incididunt ut labore et dolore magna.</p>
+                                   <h2>Boulder County Sales Data:</h2>
+                                   <p>To get data on previous years' residential sales, data was downloaded from the BoulderCounty.gov site. The website had data on all sales from 2018 to 2023, which were divided by property type (apartments, commercial, mixed-use, residential & condominiums, and vacant land) and year. Each year’s data was downloaded and imported into a Jupyter Notebook file. The yearly data was combined into one data frame for each property type.
+                                        Outliers were removed on price using the same method as the Zillow data (Median  1.5* IQR). Of the remaining data, some had zero values for the number of bedrooms, bathrooms, and square footage. This was determined to be missing data, and these values were replaced with the average value for each factor.
+                                   Square footage was broken down into above-ground sqft, finished basement sqft, unfinished basement sqft, garage sqft, and studio sqft. Zillow calculates its square footage based on above-ground, finished basement, and studio square footage, so these values were summed to match those found in Zillow. Bathrooms were also broken down into the number of full, three-quarter, and half bathrooms. Since Zillow counts full bathrooms and one and three-quarter and half bathrooms as one-half, the number of full bathrooms and one-half multiplied by the number of three-quarter and half bathrooms was calculated to match Zillow data. A new column was also made with just the sale year since we do not have data on sale month/day for the Zillow data, but it can be assumed that these properties will sell this year.
+                                   </p>
                               </div>
                          </div>
                     </div>
@@ -201,14 +206,65 @@
                     <div class="col-md-4 col-sm-4">
                          <div class="team-thumb">
                               <div class="team-info team-thumb-up">
-                                   <h2>EDA</h2>
-                                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing eiusmod tempor incididunt ut labore et dolore magna.</p>
+                                   <h2>Combining Boulder County Sales Data and Zillow Data:</h2>
+                                   <p>A new column was added to both data frames indicating the data source (Boulder County or Zillow). 
+                                        Column names were changed to have the same column name for each feature (sale price, sale year, square footage, number of bedrooms, number of bathrooms, and address). 
+                                        Once the two data frames were in the same format, pd.concat() was used to combine the two data frames into one sales data frame with both Boulder County and Zillow data. 
+                                        This data was then exported into a CSV file. </p>
                               </div>
                          </div>
                     </div>
-                    
                </div>
           </div>
+
+          <div class="container">
+               <div class="row">
+
+                    <div class="col-md-4 col-sm-4">
+                         <div class="team-thumb">
+                              <div class="team-info team-thumb-up">
+                                   <img src="images/qqplot.png" class="img-responsive" alt="Thin Laptop"> 
+                                   <p> Above qq plot is for our probable response variable: Price. The qq plot shows us that the data is not normally distributed. The right tail is skewed, 
+                                        meaning that the top percentile of properties are significantly more expensive than the rest of the samples.</p>
+                                   <img src="images/beds.png" class="img-responsive" alt="Thin Laptop"> 
+                                   <p> This histogram shows that the area of properties within the data set tend to be in the 1,000-3,000 square footage range, 
+                                        with some extreme outliers that can be up to 10,000 or even 12,000 square feet.</p>
+                                   <img src="images/avg_monthly_sales.png" class="img-responsive" alt="Thin Laptop"> 
+                                   <p> Out of all the property types, residential prices were the only type to consistently increase over the past 5 years. Vacant properties have had a very sporadic rise and are currently peaking. 
+                                        Commercial and apartment prices have been up and down as well but are at similar levels as they were 5 years ago. 
+                                        Overall, Boulder property prices have been on the rise, and residential prices in particular show no signs of slowing down. </p>
+                              </div>
+                         </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-4">
+                         <div class="team-thumb">
+                              <div class="team-info team-thumb-down">
+                                   <img src="images/area.png" class="img-responsive" alt="Thin Laptop"> 
+                                   <p> This histogram shows the number of bathrooms within the data set tend to be in the 2-5 range. The data is more evenly distributed than in the area histogram, 
+                                        but there are still extreme outliers with 10 to 15 bathrooms.</p>
+                                   <img src="images/areaprice.png" class="img-responsive" alt="Thin Laptop"> 
+                                   <p> Area appears to have a positive correlation with price. This means that the greater the area, 
+                                        the greater we would expect the price to be. The relationship also appears to be linear. </p>
+                              </div>
+                         </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-4">
+                         <div class="team-thumb">
+                              <div class="team-info team-thumb-up">
+                                   <img src="images/nbedsprice.png" class="img-responsive" alt="Thin Laptop"> 
+                                   <p> The number of bedrooms as property has a positive correlation with price. 
+                                        However, the number of bedrooms does not appear to correlate as strongly with price in comparison to area</p>
+                                   <img src="images/nbathroomsprice.png" class="img-responsive" alt="Thin Laptop"> 
+                                   <p> The number of bathrooms also has a positive correlation with price. The relationship appears linear and 
+                                             looks to be stronger than the correlation between number of bedrooms and price.</p>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </div>
+
      </section>
 
 
