@@ -276,54 +276,169 @@
                     <div class="col-md-12 col-sm-12">
                          <div class="section-title">
                               <h1>Models Implemented</h1>
+                                   <p>After conducting feature engineering on our scraped dataset, which initially comprised 45 columns, we have streamlined our features to a more manageable 13 columns. 
+                                        Our objective is to utilize these selected features to predict whether a house's price will exceed or fall below $800,000.</p>
+                                   <p>Data BEFORE Feature Engineering</p>     
+                                   <img src="images/databefore.png">
+                                   <p>Data AFTER Feature Engineering</p>     
+                                   <img src="images/dataafter.png" style="max-width:100%; height:auto;">                              
                          </div>
                     </div>
 
-                    <div class="col-md-4 col-sm-6">
+                    <div class="col-md-6 col-sm-6">
                          <div class="pricing-thumb">
                              <div class="pricing-title">
-                                  <h2>Simple Linear Regression</h2>
+                                  <h2>Decision Tree Classifier</h2>
                              </div>
                              <div class="pricing-info">
-                                   <p>Feature</p>
-                                   <p>Feature</p>
-                                   <p>Feature</p>
-                                   <p>Feature</p>
-                                   <p>Feature</p>
+                                   <p>A decision tree is like a flowchart where each internal node represents a "decision" based on a feature, 
+                                        each branch represents the outcome of that decision, and each leaf node represents a final decision or outcome. 
+                                        It splits the data into subsets based on the most significant feature at each node, aiming to create homogeneous subsets. 
+                                        By following the branches from the root node to a leaf node, you can make a decision or prediction based on the features of the data.</p>
+                                   <p>X = 'BLDG1_YEAR_BUILT': year the building was built<br>
+                                        'BEDROOMS': number of bedrooms<br>
+                                        'FULL_BATHS': number of full baths<br>
+                                        'THREE_QTR_BATHS': number of three quarter baths<br>
+                                        'HALF_BATHS': number of half baths<br>
+                                        'ABOVE_GROUND_SQFT': square feet above ground<br>
+                                        'FINISHED_BSMT_SQFT': finished basement square feet<br>
+                                        'UNFINISHED_BSMT_SQFT': unfinished basement square feet<br>
+                                        'GARAGE_SQFT': garage square feet<br>
+                                        'FINISHED_GARAGE_SQFT': finished square feet<br>
+                                        'STUDIO_SQFT': studio square feet<br></p>
+                                   <p>y = 'class': 1 if sale price >800000$</p>
+                                   <img src="images/decisiontree.png" style="max-width:100%; height:auto;">
                              </div>
                          </div>
                     </div>
 
-                    <div class="col-md-4 col-sm-6">
+                    <div class="col-md-6 col-sm-6">
                          <div class="pricing-thumb">
                              <div class="pricing-title">
-                                  <h2>Multi Linear Regression</h2>
+                                  <h2>Support Vector Machine classifier</h2>
                              </div>
                              <div class="pricing-info">
-                                   <p>Feature</p>
-                                   <p>Feature</p>
-                                   <p>Feature</p>
-                                   <p>Feature</p>
-                                   <p>Feature</p>
+                                   <p>A Support Vector Machine (SVM) is a machine learning algorithm used for classification tasks. It works by finding the optimal hyperplane that best separates different classes in the feature space. 
+                                        The "support vectors" are the data points closest to the hyperplane, and the margin is the distance between the hyperplane and these support vectors. 
+                                        SVM aims to maximize this margin while minimizing classification errors. It can handle both linearly separable and non-linearly separable data by using different kernel functions to map the input features into higher-dimensional spaces. </p>
+                                        <p>X = 'BLDG1_YEAR_BUILT': year the building was built<br>
+                                             'BEDROOMS': number of bedrooms<br>
+                                             'FULL_BATHS': number of full baths<br>
+                                             'THREE_QTR_BATHS': number of three quarter baths<br>
+                                             'HALF_BATHS': number of half baths<br>
+                                             'ABOVE_GROUND_SQFT': square feet above ground<br>
+                                             'FINISHED_BSMT_SQFT': finished basement square feet<br>
+                                             'UNFINISHED_BSMT_SQFT': unfinished basement square feet<br>
+                                             'GARAGE_SQFT': garage square feet<br>
+                                             'FINISHED_GARAGE_SQFT': finished square feet<br>
+                                             'STUDIO_SQFT': studio square feet<br></p>
+                                        <p>y = 'class': 1 if sale price >800000$</p>
+                                   <img src="images/SVM.png" style="max-width:100%; height:auto;">
                              </div>
                          </div>
                     </div>
 
-                    <div class="col-md-4 col-sm-6">
+                    <div class="col-md-6 col-sm-6">
                          <div class="pricing-thumb">
                              <div class="pricing-title">
-                                  <h2>Random Forest Regression</h2>
+                                  <h2>K Neighbors Classifier</h2>
                              </div>
                              <div class="pricing-info">
-                                   <p>Feature</p>
-                                   <p>Feature</p>
-                                   <p>Feature</p>
-                                   <p>Feature</p>
-                                   <p>Feature</p>
+                                   <p>The K Nearest Neighbors (KNN) classifier is a simple yet powerful algorithm used for classification tasks in machine learning. It works by storing all available cases and classifying new cases based on a similarity measure, typically using Euclidean distance in feature space. 
+                                        The "K" in KNN represents the number of nearest neighbors to consider. To classify a new data point, KNN finds the K nearest neighbors in the training data and assigns the class label that is most common among these neighbors.</p>
+                                        <p>X = 'BLDG1_YEAR_BUILT': year the building was built<br>
+                                             'BEDROOMS': number of bedrooms<br>
+                                             'FULL_BATHS': number of full baths<br>
+                                             'THREE_QTR_BATHS': number of three quarter baths<br>
+                                             'HALF_BATHS': number of half baths<br>
+                                             'ABOVE_GROUND_SQFT': square feet above ground<br>
+                                             'FINISHED_BSMT_SQFT': finished basement square feet<br>
+                                             'UNFINISHED_BSMT_SQFT': unfinished basement square feet<br>
+                                             'GARAGE_SQFT': garage square feet<br>
+                                             'FINISHED_GARAGE_SQFT': finished square feet<br>
+                                             'STUDIO_SQFT': studio square feet<br></p>
+                                        <p>y = 'class': 1 if sale price >800000$</p>
+                                   <img src="images/KNN.png" style="max-width:100%; height:auto;">
                              </div>
                          </div>
                     </div>
-                    
+
+                    <div class="col-md-6 col-sm-6">
+                         <div class="pricing-thumb">
+                             <div class="pricing-title">
+                                  <h2>Logistic Regression</h2>
+                             </div>
+                             <div class="pricing-info">
+                                   <p>Logistic Regression is like drawing a line between two groups of points on a graph. 
+                                        It predicts whether something is in one group or another based on its characteristics. It works by calculating the chances of something being in a certain group, and if those chances are high enough, it puts it in that group. 
+                                        It's often used when you have data with two categories, like "yes" or "no".</p>
+                                        <p>X = 'BLDG1_YEAR_BUILT': year the building was built<br>
+                                             'BEDROOMS': number of bedrooms<br>
+                                             'FULL_BATHS': number of full baths<br>
+                                             'THREE_QTR_BATHS': number of three quarter baths<br>
+                                             'HALF_BATHS': number of half baths<br>
+                                             'ABOVE_GROUND_SQFT': square feet above ground<br>
+                                             'FINISHED_BSMT_SQFT': finished basement square feet<br>
+                                             'UNFINISHED_BSMT_SQFT': unfinished basement square feet<br>
+                                             'GARAGE_SQFT': garage square feet<br>
+                                             'FINISHED_GARAGE_SQFT': finished square feet<br>
+                                             'STUDIO_SQFT': studio square feet<br></p>
+                                        <p>y = 'class': 1 if sale price >800000$</p>
+                                   <img src="images/logisticreg.png" style="max-width:100%; height:auto;">
+                             </div>
+                         </div>
+                    </div>
+
+                    <div class="col-md-6 col-sm-6">
+                         <div class="pricing-thumb">
+                             <div class="pricing-title">
+                                  <h2>Naive Bayes Classifier</h2>
+                             </div>
+                             <div class="pricing-info">
+                                   <p>Think of the Naive Bayes classifier as a smart guesser. It predicts the category of something based on the probabilities of its features. 
+                                        It assumes that the features are independent of each other (even if they aren't), which simplifies the calculations. </p>
+                                        <p>X = 'BLDG1_YEAR_BUILT': year the building was built<br>
+                                             'BEDROOMS': number of bedrooms<br>
+                                             'FULL_BATHS': number of full baths<br>
+                                             'THREE_QTR_BATHS': number of three quarter baths<br>
+                                             'HALF_BATHS': number of half baths<br>
+                                             'ABOVE_GROUND_SQFT': square feet above ground<br>
+                                             'FINISHED_BSMT_SQFT': finished basement square feet<br>
+                                             'UNFINISHED_BSMT_SQFT': unfinished basement square feet<br>
+                                             'GARAGE_SQFT': garage square feet<br>
+                                             'FINISHED_GARAGE_SQFT': finished square feet<br>
+                                             'STUDIO_SQFT': studio square feet<br></p>
+                                        <p>y = 'class': 1 if sale price >800000$</p>
+                                   <img src="images/NB.png" style="max-width:100%; height:auto;">
+                             </div>
+                         </div>
+                    </div>
+
+                    <div class="col-md-6 col-sm-6">
+                         <div class="pricing-thumb">
+                             <div class="pricing-title">
+                                  <h2>Gradient Boosting Classifier</h2>
+                             </div>
+                             <div class="pricing-info">
+                                   <p>Gradient Boosting Classifier is like building a team of specialists. It combines multiple weak learners (simple models) to create a strong learner. 
+                                        It works by repeatedly training new models to correct the errors of the previous ones. Each new model focuses on the mistakes made by the ensemble so far, gradually improving overall performance. 
+                                        It's powerful for various tasks and often leads to highly accurate predictions</p>
+                                        <p>X = 'BLDG1_YEAR_BUILT': year the building was built<br>
+                                             'BEDROOMS': number of bedrooms<br>
+                                             'FULL_BATHS': number of full baths<br>
+                                             'THREE_QTR_BATHS': number of three quarter baths<br>
+                                             'HALF_BATHS': number of half baths<br>
+                                             'ABOVE_GROUND_SQFT': square feet above ground<br>
+                                             'FINISHED_BSMT_SQFT': finished basement square feet<br>
+                                             'UNFINISHED_BSMT_SQFT': unfinished basement square feet<br>
+                                             'GARAGE_SQFT': garage square feet<br>
+                                             'FINISHED_GARAGE_SQFT': finished square feet<br>
+                                             'STUDIO_SQFT': studio square feet<br></p>
+                                        <p>y = 'class': 1 if sale price >800000$</p>
+                                   <img src="images/gradientboost.png" style="max-width:100%; height:auto;">
+                             </div>
+                         </div>
+                    </div>
                </div>
           </div>
      </section>   
